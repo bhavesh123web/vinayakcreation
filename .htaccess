@@ -1,0 +1,29 @@
+#Options +FollowSymLinks
+RewriteEngine on
+DirectoryIndex loader_front.php
+Options All -Indexes
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+	RewriteRule ^(software_demo|mask)($|/) - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ loader_front.php?url=$1 [QSA,L]
+</IfModule>
+
+#RewriteRule home home.php
+#RewriteRule all_properties all_properties.php
+#RewriteRule all_properties-ahmedabad all_properties.php?city=Ahmedabad
+#RewriteRule all_properties/(.*) all_properties.php?city=$1
+
+#RewriteRule home.html home.php
+#RewriteRule all_properties.html all_properties.php
+#RewriteRule /loader/pages/home.php /loader/pages/home.html
+#Redirect home.php home.html
+#RedirectMatch 301 admin/role admin/role11.php
+#RedirectMatch 301 "(.*)\.pdf$" "$1.php"
+
+#<Directory "/">
+#<Files "*.php">
+#Order Deny,Allow
+#Deny from All
+#</Files>
+#</Directory>
